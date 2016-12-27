@@ -1,0 +1,26 @@
+<head>
+  <title>taskListPrac</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4">
+        {{> todoList}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="todoList">
+  <h3>Todos</h3>
+  {{>quickForm id="todo-form" collection="Todos" type="insert" omitFields="createdAt"}}
+  <button id= "reverse"> Reverse</button>
+  <ul>
+    {{#each todos}}
+      <li class="{{#if done}}done{{/if}}"><input type="checkbox" checked="{{#if done}}checked{{/if}}"/>{{label}} <button class= "delete">X</button> {{createdAt}}</li>
+    {{/each}}
+  </ul>
+</template>
+
